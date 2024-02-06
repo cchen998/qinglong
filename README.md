@@ -166,6 +166,14 @@ podman run -dit \
 建议使用纯净系统安装，避免系统原有数据丢失，需要自己安装 node/npm/python3/pip3
 
 ```bash
+# Debian/Ubuntu
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# Centos
+curl --silent --location https://rpm.nodesource.com/setup_20.x | sudo bash
+```
+
+```bash
+npm install -g node-pre-gyp pnpm@8.3.1
 npm install -g @whyour/qinglong
 qinglong
 # 根据提示增加环境变量 QL_DIR 和 QL_DATA_DIR
@@ -178,7 +186,7 @@ qinglong
 ## 开发
 
 ```bash
-$ git clone git@github.com:whyour/qinglong.git
+$ git clone https://github.com/whyour/qinglong.git
 $ cd qinglong
 $ cp .env.example .env
 # 推荐使用 pnpm https://pnpm.io/zh/installation

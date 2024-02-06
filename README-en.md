@@ -166,6 +166,14 @@ podman run -dit \
 It is recommended to use a pure system installation to avoid losing the original system data, you need to install node/npm/python3/pip3 yourself
 
 ```bash
+# Debian/Ubuntu
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# Centos
+curl --silent --location https://rpm.nodesource.com/setup_20.x | sudo bash
+```
+
+```bash
+npm install -g node-pre-gyp pnpm@8.3.1
 npm install -g @whyour/qinglong
 qinglong
 # Add the environment variables QL_DIR and QL_DATA_DIR when prompted
@@ -178,7 +186,7 @@ qinglong
 ## Development
 
 ```bash
-$ git clone git@github.com:whyour/qinglong.git
+$ git clone https://github.com/whyour/qinglong.git
 $ cd qinglong
 $ cp .env.example .env
 # Recommended use pnpm https://pnpm.io/zh/installation

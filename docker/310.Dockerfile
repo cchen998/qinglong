@@ -1,4 +1,4 @@
-FROM python:3.11-alpine3.18 as builder
+FROM python:3.10-alpine3.18 as builder
 COPY package.json .npmrc pnpm-lock.yaml /tmp/build/
 RUN set -x \
   && apk update \
@@ -7,7 +7,7 @@ RUN set -x \
   && cd /tmp/build \
   && pnpm install --prod
 
-FROM python:3.11-alpine3.18
+FROM python:3.10-alpine3.18
 
 ARG QL_MAINTAINER="whyour"
 LABEL maintainer="${QL_MAINTAINER}"
@@ -22,10 +22,6 @@ ENV PNPM_HOME=/root/.local/share/pnpm \
   PS1="\u@\h:\w \$ " \
   QL_DIR=/ql \
   QL_BRANCH=${QL_BRANCH}
-
-VOLUME /ql/data
-  
-EXPOSE 5700
 
 RUN set -x \
   && apk update -f \
